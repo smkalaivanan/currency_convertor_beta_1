@@ -95,7 +95,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.70980392160000005" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         <connections>
                                             <outlet property="delegate" destination="hdP-cv-ycj" id="gNy-iq-aiW"/>
                                         </connections>
@@ -193,9 +193,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="** First five transaction will be free of cost after that for each transaction will be charged 0.7% service cost." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yU-jU-z2W">
-                                <rect key="frame" x="16" y="393" width="343" height="39"/>
+                                <rect key="frame" x="16" y="385" width="343" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFq-GV-kBB">
+                                <rect key="frame" x="16" y="443" width="343" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -210,6 +217,7 @@
                         <outlet property="fromFlagImage" destination="RZl-B6-mUC" id="Icw-eW-gLf"/>
                         <outlet property="fromValue" destination="Qak-YG-rnQ" id="TIH-FC-vu7"/>
                         <outlet property="jpyBalance" destination="hpE-f9-Vi2" id="80U-gZ-xVl"/>
+                        <outlet property="success" destination="IFq-GV-kBB" id="W0X-Ez-sYQ"/>
                         <outlet property="toCurrencyButton" destination="EIy-Ss-r6d" id="Ehs-lY-Hxm"/>
                         <outlet property="toCurrencyImage" destination="7LC-MA-R6O" id="3dl-pW-FTq"/>
                         <outlet property="toFlagImage" destination="bnr-zU-4YP" id="EvT-Bl-Ylh"/>

@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var eurBalance: UILabel!
     @IBOutlet weak var jpyBalance: UILabel!
     
+    @IBOutlet weak var success: UILabel!
+    @IBOutlet weak var servicecharge: UILabel!
+    
     //Image Declaration
     @IBOutlet weak var fromFlagImage: UIImageView!
     @IBOutlet weak var toFlagImage: UIImageView!
@@ -46,7 +49,7 @@ class ViewController: UIViewController {
     var taxCalcs : Double!
     
     var countValue : Int!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         //Button background
@@ -59,12 +62,31 @@ class ViewController: UIViewController {
         toValue.isUserInteractionEnabled = false
         
         //Inital amount
-        usdBalance.text = "1000"
-        eurBalance.text = "0"
-        jpyBalance.text = "500"
+        usdBalance.text = "1000.00"
+        eurBalance.text = "0.00"
+        jpyBalance.text = "0.00"
         countValue = 0
         taxCalcs = 0
         
+        // ToolBar for keyboard
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.barTintColor = UIColor.lightGray
+        toolBar.sizeToFit()
+        
+        // buttons for toolBar
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneClick))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.setItems([spaceButton, doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        fromValue.inputAccessoryView = toolBar
+    }
+
+
+    //Done action
+    func doneClick() {
+        fromValue.resignFirstResponder()
         
     }
 
@@ -79,7 +101,7 @@ class ViewController: UIViewController {
         
         let EUR = UIAlertAction(title: "EUR", style: .default, handler: {
             action in
-            if self.eurBalance.text == "0"{
+            if self.eurBalance.text == "0.00"{
                 self.alert()
             }else{
                 self.fromCurrencyButton?.setTitle("EUR", for:.normal)
@@ -91,7 +113,7 @@ class ViewController: UIViewController {
         
         let USD = UIAlertAction(title: "USD", style: .default, handler: {
             action in
-            if self.usdBalance.text == "0"{
+            if self.usdBalance.text == "0.00"{
                 self.alert()
             }else{
             self.fromCurrencyButton?.setTitle("USD", for: .normal)
@@ -103,7 +125,7 @@ class ViewController: UIViewController {
         
         let JPY = UIAlertAction(title: "JPY", style: .default, handler: {
             action in
-            if self.jpyBalance.text == "0"{
+            if self.jpyBalance.text == "0.00"{
                 self.alert()
             }else{
             self.fromCurrencyButton?.setTitle("JPY", for: .normal)
@@ -162,11 +184,33 @@ class ViewController: UIViewController {
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }else{
-            self.fromValue.text = ""
-            self.apiFunction()
+            self.methods()
         }
     }
     
+    //Amount valuation
+    func methods()
+    {
+        if self.fromCurrencyButton.title(for: .normal)! == "USD" {
+            if self.fromValue.text! < self.usdBalance.text!{
+                self.apiFunction()
+            }else{
+                self.alert()
+            }
+        }else if self.fromCurrencyButton.title(for: .normal)! == "EUR"{
+            if self.fromValue.text! < self.eurBalance.text!{
+                self.apiFunction()
+            }else{
+                self.alert()
+            }
+        }else if self.fromCurrencyButton.title(for: .normal)! == "JPY"{
+            if self.fromValue.text! < self.jpyBalance.text!{
+                self.apiFunction()
+            }else{
+                self.alert()
+            }
+        }
+    }
     //Alert Function
     func alert()  {
         let alert = UIAlertController(title: "Insufficent Balance", message: "Your balance is insufficent to make this transaction", preferredStyle: UIAlertControllerStyle.alert)
@@ -174,7 +218,6 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
 
     }
-    
     
     //Tax Calculation
     func taxCalculation() {
@@ -201,8 +244,9 @@ class ViewController: UIViewController {
                     print(json)
                     OperationQueue.main.addOperation({
                         self.countValue = self.countValue + 1
-                        if self.countValue < 5{
+                        if self.countValue > 5{
                             self.taxCalculation()
+                            print("entry")
                         }
                         self.currencyName = json["currency"] as! String
                         self.currencyAmountString = json["amount"] as! String
@@ -210,44 +254,47 @@ class ViewController: UIViewController {
 
                         switch self.currencyName {
                         case "USD":
-                            self.currencyAmount = Double(self.usdBalance.text!)! + Double(self.currencyAmountString)! + Double(self.taxCalcs)
+                            self.currencyAmount = Double(self.usdBalance.text!)! + Double(self.currencyAmountString)!
                             self.usdBalance.text = String(format:"%.2f", self.currencyAmount)
                             
                             if self.fromCurrencyButton.title(for: .normal)! == "EUR" {
-                                self.eurBalance.text = String(format:"%.2f", (Double(self.eurBalance.text!)! - Double(self.amountKey!)!))
+                                self.eurBalance.text = String(format:"%.2f", (Double(self.eurBalance.text!)! - Double(self.amountKey!)!) - Double(self.taxCalcs))
                             }else if self.fromCurrencyButton.title(for: .normal)! == "JPY"{
-                                self.jpyBalance.text = String(format:"%.2f", (Double(self.jpyBalance.text!)! - Double(self.amountKey!)!))
+                                self.jpyBalance.text = String(format:"%.2f", (Double(self.jpyBalance.text!)! - Double(self.amountKey!)!) - Double(self.taxCalcs))
                             }
 
                             break
                         case "EUR":
-                            self.currencyAmount = Double(self.eurBalance.text!)! + Double(self.currencyAmountString)! + Double(self.taxCalcs)
+                            self.currencyAmount = Double(self.eurBalance.text!)! + Double(self.currencyAmountString)!
                             self.eurBalance.text = String(format:"%.2f", self.currencyAmount)
                             
                             if self.fromCurrencyButton.title(for: .normal)! == "USD"{
-                                self.usdBalance.text = String(format:"%.2f", (Double(self.usdBalance.text!)! - Double(self.amountKey!)!))
+                                self.usdBalance.text = String(format:"%.2f", (Double(self.usdBalance.text!)! - Double(self.amountKey!)!) - Double(self.taxCalcs))
                             }else if self.fromCurrencyButton.title(for: .normal)! == "JPY"{
-                                self.jpyBalance.text = String(format:"%.2f", (Double(self.jpyBalance.text!)! - Double(self.amountKey!)!))
+                                self.jpyBalance.text = String(format:"%.2f", (Double(self.jpyBalance.text!)! - Double(self.amountKey!)!) - Double(self.taxCalcs))
                             }
 
                             break
                         case "JPY":
-                            self.currencyAmount = Double(self.eurBalance.text!)! + Double(self.currencyAmountString)! + Double(self.taxCalcs)
-                            self.eurBalance.text = String(format:"%.2f", self.currencyAmount)
+                            self.currencyAmount = Double(self.eurBalance.text!)! + Double(self.currencyAmountString)!
+                            self.jpyBalance.text = String(format:"%.2f", self.currencyAmount)
                             
                             if self.fromCurrencyButton.title(for: .normal)! == "EUR"{
-                                self.eurBalance.text = String(format:"%.2f", (Double(self.eurBalance.text!)! - Double(self.amountKey!)!))
+                                self.eurBalance.text = String(format:"%.2f", (Double(self.eurBalance.text!)! - Double(self.amountKey!)!) - Double(self.taxCalcs))
                             }else if self.fromCurrencyButton.title(for: .normal)! == "USD"{
-                                self.usdBalance.text = String(format:"%.2f", (Double(self.usdBalance.text!)! - Double(self.amountKey!)!))
+                                self.usdBalance.text = String(format:"%.2f", (Double(self.usdBalance.text!)! - Double(self.amountKey!)!) - Double(self.taxCalcs))
                             }
 
                             break
                         default: break
                         }
                         
-                        self.fromCurrencyButton?.setTitle("Choose", for: .normal)
-                        self.toCurrencyButton?.setTitle("Choose", for: .normal)
+                        self.success.text = String(format:"You have converted \(self.fromValue.text!) \(self.fromCurrencyButton.title(for: .normal)!) to \(String(format:"%.2f",self.currencyAmount)) \(self.toCurrencyButton.title(for: .normal)!). Commission Fee - \(String(format:"%.2f",self.taxCalcs)) \(self.fromCurrencyButton.title(for: .normal)!) ")
+                        
                         self.fromValue.text = ""
+                        
+                        print(self.success.text!)
+                        
                     })
                 }catch let error as NSError{
                     print(error)
