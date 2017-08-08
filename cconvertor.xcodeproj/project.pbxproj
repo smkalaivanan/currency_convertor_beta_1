@@ -15,6 +15,16 @@
 		18920EC51F3984B100D033E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18920EC31F3984B100D033E3 /* LaunchScreen.storyboard */; };
 		18920ED01F3984B100D033E3 /* cconvertorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18920ECF1F3984B100D033E3 /* cconvertorTests.swift */; };
 		18920EDB1F3984B100D033E3 /* cconvertorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18920EDA1F3984B100D033E3 /* cconvertorUITests.swift */; };
+		18920F1C1F39A9E900D033E3 /* app_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 18920F111F39A9E900D033E3 /* app_bg.png */; };
+		18920F1E1F39A9E900D033E3 /* sort.png in Resources */ = {isa = PBXBuildFile; fileRef = 18920F131F39A9E900D033E3 /* sort.png */; };
+		18920F1F1F39A9E900D033E3 /* dollor.png in Resources */ = {isa = PBXBuildFile; fileRef = 18920F141F39A9E900D033E3 /* dollor.png */; };
+		18920F211F39A9E900D033E3 /* euro.png in Resources */ = {isa = PBXBuildFile; fileRef = 18920F161F39A9E900D033E3 /* euro.png */; };
+		18920F221F39A9E900D033E3 /* japan_jpypng.png in Resources */ = {isa = PBXBuildFile; fileRef = 18920F171F39A9E900D033E3 /* japan_jpypng.png */; };
+		18920F231F39A9E900D033E3 /* japan.png in Resources */ = {isa = PBXBuildFile; fileRef = 18920F181F39A9E900D033E3 /* japan.png */; };
+		18920F251F39A9E900D033E3 /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 18920F1A1F39A9E900D033E3 /* left-arrow.png */; };
+		18920F261F39A9E900D033E3 /* usd.png in Resources */ = {isa = PBXBuildFile; fileRef = 18920F1B1F39A9E900D033E3 /* usd.png */; };
+		18920F291F39B6A100D033E3 /* euroflag.png in Resources */ = {isa = PBXBuildFile; fileRef = 18920F271F39B6A100D033E3 /* euroflag.png */; };
+		18920F2A1F39B6A100D033E3 /* jpy.png in Resources */ = {isa = PBXBuildFile; fileRef = 18920F281F39B6A100D033E3 /* jpy.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +59,16 @@
 		18920ED61F3984B100D033E3 /* cconvertorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cconvertorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		18920EDA1F3984B100D033E3 /* cconvertorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cconvertorUITests.swift; sourceTree = "<group>"; };
 		18920EDC1F3984B100D033E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18920F111F39A9E900D033E3 /* app_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_bg.png; sourceTree = "<group>"; };
+		18920F131F39A9E900D033E3 /* sort.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sort.png; sourceTree = "<group>"; };
+		18920F141F39A9E900D033E3 /* dollor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollor.png; sourceTree = "<group>"; };
+		18920F161F39A9E900D033E3 /* euro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = euro.png; sourceTree = "<group>"; };
+		18920F171F39A9E900D033E3 /* japan_jpypng.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = japan_jpypng.png; sourceTree = "<group>"; };
+		18920F181F39A9E900D033E3 /* japan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = japan.png; sourceTree = "<group>"; };
+		18920F1A1F39A9E900D033E3 /* left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow.png"; sourceTree = "<group>"; };
+		18920F1B1F39A9E900D033E3 /* usd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = usd.png; sourceTree = "<group>"; };
+		18920F271F39B6A100D033E3 /* euroflag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = euroflag.png; sourceTree = "<group>"; };
+		18920F281F39B6A100D033E3 /* jpy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jpy.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +122,7 @@
 				18920EB71F3984B000D033E3 /* AppDelegate.swift */,
 				18920EB91F3984B000D033E3 /* ViewController.swift */,
 				18920EBB1F3984B000D033E3 /* Main.storyboard */,
+				18FDEB4F1F39E813001EFCB5 /* asserts */,
 				18920EC11F3984B100D033E3 /* Assets.xcassets */,
 				18920EC31F3984B100D033E3 /* LaunchScreen.storyboard */,
 				18920EC61F3984B100D033E3 /* Info.plist */,
@@ -126,6 +147,23 @@
 				18920EDC1F3984B100D033E3 /* Info.plist */,
 			);
 			path = cconvertorUITests;
+			sourceTree = "<group>";
+		};
+		18FDEB4F1F39E813001EFCB5 /* asserts */ = {
+			isa = PBXGroup;
+			children = (
+				18920F111F39A9E900D033E3 /* app_bg.png */,
+				18920F131F39A9E900D033E3 /* sort.png */,
+				18920F141F39A9E900D033E3 /* dollor.png */,
+				18920F161F39A9E900D033E3 /* euro.png */,
+				18920F171F39A9E900D033E3 /* japan_jpypng.png */,
+				18920F181F39A9E900D033E3 /* japan.png */,
+				18920F1A1F39A9E900D033E3 /* left-arrow.png */,
+				18920F1B1F39A9E900D033E3 /* usd.png */,
+				18920F271F39B6A100D033E3 /* euroflag.png */,
+				18920F281F39B6A100D033E3 /* jpy.png */,
+			);
+			name = asserts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,9 +276,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18920F231F39A9E900D033E3 /* japan.png in Resources */,
 				18920EC51F3984B100D033E3 /* LaunchScreen.storyboard in Resources */,
+				18920F211F39A9E900D033E3 /* euro.png in Resources */,
+				18920F1F1F39A9E900D033E3 /* dollor.png in Resources */,
+				18920F291F39B6A100D033E3 /* euroflag.png in Resources */,
+				18920F261F39A9E900D033E3 /* usd.png in Resources */,
 				18920EC21F3984B100D033E3 /* Assets.xcassets in Resources */,
+				18920F221F39A9E900D033E3 /* japan_jpypng.png in Resources */,
+				18920F1C1F39A9E900D033E3 /* app_bg.png in Resources */,
+				18920F2A1F39B6A100D033E3 /* jpy.png in Resources */,
+				18920F251F39A9E900D033E3 /* left-arrow.png in Resources */,
 				18920EBD1F3984B000D033E3 /* Main.storyboard in Resources */,
+				18920F1E1F39A9E900D033E3 /* sort.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +566,7 @@
 				18920EE11F3984B100D033E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18920EE21F3984B100D033E3 /* Build configuration list for PBXNativeTarget "cconvertorTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +575,7 @@
 				18920EE41F3984B100D033E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18920EE51F3984B100D033E3 /* Build configuration list for PBXNativeTarget "cconvertorUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +584,7 @@
 				18920EE71F3984B100D033E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
